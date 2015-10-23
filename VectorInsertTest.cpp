@@ -5,6 +5,7 @@
 std::vector<int>::iterator insert(std::vector<int>& v, size_t pos, const int& val) {
     size_t size= v.size();
     size_t offset = size - pos;
+    assert(pos >= 0 && pos <= size);
     std::vector<int>::iterator it = v.end();
     std::vector<int>::iterator it1 = it - 1;
     
