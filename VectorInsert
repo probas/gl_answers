@@ -1,0 +1,22 @@
+template<typename T>
+std::vector<T>::iterator insert(std::vector<T>& v, size_t pos, const T& val) {
+    size_t size= v.size();
+    size_t offset = size - pos;
+    std::vector<T>::iterator it = v.end();
+    std::vector<T>::iterator it1 = it - 1;
+    
+    if ( offset == 0 ) {
+        v.push_back(val);
+        return it;
+    }
+
+    v.push_back(*it1);
+    for (int i = offset; i > 1; i--) {
+        it1 -= 1;
+        it -= 1;
+        *it = *it1;
+    }
+    *it1 = val;
+    
+    return it1;
+}
